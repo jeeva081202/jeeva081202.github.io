@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin — N. Jeeva Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+<!-- LOGIN GATE -->
+<div id="login-screen" class="login-screen">
+  <div class="login-card">
+    <div class="login-logo">JEEVA<span>.</span></div>
+    <h1>Admin Login</h1>
+    <p>Enter your password to edit the portfolio.</p>
+    <input type="password" id="login-pw" placeholder="Password" autocomplete="current-password">
+    <button id="login-btn" class="btn-primary">Unlock</button>
+    <div id="login-error" class="login-error"></div>
+    <a href="index.html" class="back-link">← Back to portfolio</a>
+  </div>
+</div>
+
+<!-- ADMIN APP -->
+<div id="admin-app" class="admin-app" style="display:none;">
+  <aside class="sidebar">
+    <div class="sidebar-brand">JEEVA<span>.</span> Admin</div>
+    <nav class="sidebar-nav">
+      <button class="tab-btn active" data-tab="hero">Hero / Profile</button>
+      <button class="tab-btn" data-tab="about">About</button>
+      <button class="tab-btn" data-tab="services">Services</button>
+      <button class="tab-btn" data-tab="skills">Skills</button>
+      <button class="tab-btn" data-tab="experience">Experience</button>
+      <button class="tab-btn" data-tab="projects">Projects</button>
+      <button class="tab-btn" data-tab="education">Education</button>
+      <button class="tab-btn" data-tab="contact">Contact</button>
+      <button class="tab-btn" data-tab="theme">Theme / Colors</button>
+      <button class="tab-btn" data-tab="images">Images</button>
+      <button class="tab-btn" data-tab="advanced">Advanced (JSON)</button>
+      <button class="tab-btn" data-tab="settings">Settings</button>
+    </nav>
+    <a href="index.html" class="sidebar-view-site" target="_blank">View Live Site ↗</a>
+  </aside>
+
+  <main class="main">
+    <div class="topbar">
+      <div class="topbar-status" id="topbar-status">All changes saved</div>
+      <div class="topbar-actions">
+        <button id="btn-export" class="btn-outline">Export JSON</button>
+        <label class="btn-outline file-label">Import JSON<input type="file" id="btn-import" accept="application/json" hidden></label>
+        <button id="btn-reset" class="btn-outline danger">Reset to Default</button>
+        <button id="btn-save" class="btn-primary">Save Changes</button>
+      </div>
+    </div>
+
+    <div class="tab-panels">
+
+      <section class="panel active" id="panel-hero">
+        <h2>Hero / Profile</h2>
+        <p class="panel-desc">This is the first thing visitors see.</p>
+        <div class="field"><label>Full Name</label><input id="f-hero-name" type="text"></div>
+        <div class="field"><label>Greeting (small text before name)</label><input id="f-hero-greeting" type="text"></div>
+        <div class="field"><label>Rotating Roles (one per line)</label><textarea id="f-hero-roles" rows="4"></textarea></div>
+        <div class="field"><label>Tagline / Short Bio</label><textarea id="f-hero-tagline" rows="3"></textarea></div>
+        <div class="field-row">
+          <div class="field"><label>Primary Button Label</label><input id="f-hero-cta1-label" type="text"></div>
+          <div class="field"><label>Primary Button Link</label><input id="f-hero-cta1-href" type="text"></div>
+        </div>
+        <div class="field-row">
+          <div class="field"><label>Secondary Button Label</label><input id="f-hero-cta2-label" type="text"></div>
+          <div class="field"><label>Secondary Button Link</label><input id="f-hero-cta2-href" type="text"></div>
+        </div>
+        <h3>Resume Download Button</h3>
+        <div class="field-row">
+          <div class="field"><label>Button Label</label><input id="f-hero-resume-label" type="text"></div>
+          <div class="field"><label>Resume File Path</label><input id="f-hero-resume-href" type="text" placeholder="files/N-Jeeva-Resume.pdf"></div>
+        </div>
+        <p class="hint">To replace your resume file, drop a new PDF into the <code>files</code> folder with the same name, or upload below.</p>
+        <div class="field"><label>Upload New Resume PDF</label><input type="file" id="f-hero-resume-upload" accept="application/pdf"></div>
+      </section>
+
+      <section class="panel" id="panel-about">
+        <h2>About</h2>
+        <div class="field"><label>Section Heading</label><input id="f-about-heading" type="text"></div>
+        <div class="field"><label>Paragraphs (one per line)</label><textarea id="f-about-paragraphs" rows="8"></textarea></div>
+        <h3>Stats</h3>
+        <div id="repeater-stats" class="repeater"></div>
+        <button class="btn-outline add-btn" id="add-stat">+ Add Stat</button>
+      </section>
+
+      <section class="panel" id="panel-services">
+        <h2>Services / What I Offer</h2>
+        <div class="field"><label>Section Heading</label><input id="f-services-heading" type="text"></div>
+        <div class="field"><label>Subheading</label><input id="f-services-sub" type="text"></div>
+        <div id="repeater-services" class="repeater"></div>
+        <button class="btn-outline add-btn" id="add-service">+ Add Service</button>
+      </section>
+
+      <section class="panel" id="panel-skills">
+        <h2>Skills</h2>
+        <div class="field"><label>Section Heading</label><input id="f-skills-heading" type="text"></div>
+        <div class="field"><label>Subheading</label><input id="f-skills-sub" type="text"></div>
+        <div id="repeater-skill-categories" class="repeater"></div>
+        <button class="btn-outline add-btn" id="add-skill-category">+ Add Skill Category</button>
+        <p class="hint" style="margin-top:16px;">Icon URL tip: use <code>https://cdn.simpleicons.org/&lt;brand-slug&gt;/&lt;hexcolor&gt;</code>, e.g. <code>https://cdn.simpleicons.org/figma/F24E1E</code>. Browse slugs at simpleicons.org. If a brand has no logo there (common for Canva, ChatGPT, Excel, VS Code), use a self-contained badge instead — it never breaks: <code>text:LABEL:bgHex:fgHex</code>, e.g. <code>text:Cva:00C4CC:0a0a12</code>. The small "Level %" field controls the proficiency ring shown around each skill's icon on the live site.</p>
+      </section>
+
+      <section class="panel" id="panel-experience">
+        <h2>Experience</h2>
+        <div class="field"><label>Section Heading</label><input id="f-exp-heading" type="text"></div>
+        <div id="repeater-experience" class="repeater"></div>
+        <button class="btn-outline add-btn" id="add-experience">+ Add Experience</button>
+      </section>
+
+      <section class="panel" id="panel-projects">
+        <h2>Projects</h2>
+        <div class="field"><label>Section Heading</label><input id="f-projects-heading" type="text"></div>
+        <div class="field"><label>Subheading</label><input id="f-projects-sub" type="text"></div>
+        <div id="repeater-projects" class="repeater"></div>
+        <button class="btn-outline add-btn" id="add-project">+ Add Project</button>
+      </section>
+
+      <section class="panel" id="panel-education">
+        <h2>Education & Certifications</h2>
+        <div class="field"><label>Section Heading</label><input id="f-edu-heading" type="text"></div>
+        <div id="repeater-education" class="repeater"></div>
+        <button class="btn-outline add-btn" id="add-education">+ Add Education</button>
+        <h3 style="margin-top:26px;">Core Strengths</h3>
+        <div class="field"><label>Comma-separated list</label><input id="f-strengths" type="text"></div>
+      </section>
+
+      <section class="panel" id="panel-contact">
+        <h2>Contact</h2>
+        <div class="field"><label>Section Heading</label><input id="f-contact-heading" type="text"></div>
+        <div class="field"><label>Subheading</label><input id="f-contact-sub" type="text"></div>
+        <div class="field-row">
+          <div class="field"><label>Email</label><input id="f-contact-email" type="text"></div>
+          <div class="field"><label>Phone</label><input id="f-contact-phone" type="text"></div>
+        </div>
+        <div class="field-row">
+          <div class="field"><label>LinkedIn URL</label><input id="f-contact-linkedin" type="text"></div>
+          <div class="field"><label>GitHub URL</label><input id="f-contact-github" type="text"></div>
+        </div>
+        <div class="field-row">
+          <div class="field"><label>GitHub Username (for live stats card)</label><input id="f-contact-githubuser" type="text"></div>
+          <div class="field"><label>Location</label><input id="f-contact-location" type="text"></div>
+        </div>
+        <h3>WhatsApp Quick-Chat Button</h3>
+        <div class="field"><label>WhatsApp Number (country code + number, no + or spaces, e.g. 918270807049)</label><input id="f-contact-whatsapp" type="text"></div>
+        <h3>Contact Form</h3>
+        <p class="hint">Uses <a href="https://formsubmit.co" target="_blank" style="color:var(--accent-2)">formsubmit.co</a> — free, no backend needed. First message you receive will have a confirmation link from FormSubmit; click it once to activate.</p>
+        <div class="field"><label>Form Endpoint</label><input id="f-contact-formendpoint" type="text" placeholder="https://formsubmit.co/ajax/you@email.com"></div>
+      </section>
+
+      <section class="panel" id="panel-theme">
+        <h2>Theme / Colors</h2>
+        <p class="panel-desc">Controls the premium gradient used across buttons, headings and highlights.</p>
+        <div class="field-row">
+          <div class="field"><label>Accent Color 1</label><input id="f-theme-from" type="color"></div>
+          <div class="field"><label>Accent Color 2</label><input id="f-theme-to" type="color"></div>
+          <div class="field"><label>Gold Highlight</label><input id="f-theme-gold" type="color"></div>
+        </div>
+        <div class="field">
+          <label>Default Site Mode (visitor can still toggle)</label>
+          <select id="f-theme-mode">
+            <option value="dark">Dark (recommended)</option>
+            <option value="light">Light</option>
+          </select>
+        </div>
+      </section>
+
+      <section class="panel" id="panel-images">
+        <h2>Images</h2>
+        <p class="panel-desc">Upload a new photo to replace any slot. Images are stored inside your browser (as part of saved content), so keep the original files safe too.</p>
+        <div class="image-slots" id="image-slots"></div>
+      </section>
+
+      <section class="panel" id="panel-advanced">
+        <h2>Advanced — Raw JSON</h2>
+        <p class="panel-desc">Full control. Edit the JSON directly for anything not covered above, then click Apply JSON.</p>
+        <textarea id="raw-json" rows="24" spellcheck="false"></textarea>
+        <button class="btn-primary add-btn" id="apply-json">Apply JSON</button>
+        <div id="json-error" class="login-error"></div>
+      </section>
+
+      <section class="panel" id="panel-settings">
+        <h2>Settings</h2>
+        <div class="field"><label>Change Admin Password</label><input id="f-new-pw" type="password" placeholder="New password"></div>
+        <button class="btn-outline add-btn" id="btn-change-pw">Update Password</button>
+        <hr style="border-color: var(--border); margin: 26px 0;">
+        <button class="btn-outline danger add-btn" id="btn-logout">Logout</button>
+      </section>
+
+    </div>
+  </main>
+</div>
+
+<script src="content.js"></script>
+<script src="admin.js"></script>
+</body>
+</html>
