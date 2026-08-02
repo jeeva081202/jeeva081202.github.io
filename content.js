@@ -17,10 +17,10 @@ const DEFAULT_CONTENT = {
     roles: ["Full-Stack Developer", "Python & Django Engineer", "React.js Developer", "Freelance Web Developer"],
     tagline: "Full-Stack Developer with 7+ months of production experience building REST APIs and client-facing features with Python, Django and React.js.",
     heroImage: "images/office-laptop.png",
-    resumeFile: "files/N-Jeeva-Resume.pdf",
+    resumeFile: "files/N-Jeeva-Resume-2026.pdf",
     ctaPrimary: { label: "View My Work", href: "#projects" },
     ctaSecondary: { label: "Contact Me", href: "#contact" },
-    ctaResume: { label: "Download Resume", href: "files/N-Jeeva-Resume.pdf" }
+    ctaResume: { label: "Download Resume", href: "files/N-Jeeva-Resume-2026.pdf" }
   },
 
   quote: {
