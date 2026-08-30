@@ -15,7 +15,7 @@ const DEFAULT_CONTENT = {
     greeting: "Hello, I'm",
     name: "N. Jeeva",
     roles: ["Full-Stack Developer", "Python & Django Engineer", "React.js Developer", "Freelance Web Developer"],
-    tagline: "Full-Stack Developer with 7+ months of production experience building REST APIs and client-facing features with Python, Django and React.js.",
+    tagline: "Frontend-focused Full-Stack Developer with 7+ months of production experience building responsive React.js interfaces — plus hands-on Python & Django backend exposure, growing every day into a complete full-stack engineer.",
     heroImage: "images/office-laptop.png",
     resumeFile: "files/N-Jeeva-Resume-2026.pdf",
     ctaPrimary: { label: "View My Work", href: "#projects" },
@@ -59,14 +59,15 @@ const DEFAULT_CONTENT = {
     heading: "About Me",
     image: "images/outdoor-leaning.png",
     paragraphs: [
-      "I'm N. Jeeva, a Full-Stack Developer from India with hands-on production experience in Python, Django and React.js. Over the last 7+ months I've designed and shipped 10+ REST API endpoints and delivered client-facing features on live projects.",
-      "Alongside my full-time work, I freelance — building complete websites for clients from scratch. I lean heavily on AI-assisted development tools like GitHub Copilot, ChatGPT and Claude AI to write cleaner code, faster.",
+      "I'm N. Jeeva, a frontend-focused Full-Stack Developer from India with 7+ months of production experience building responsive React.js interfaces at Swivel Technologies, alongside hands-on Python and Django backend exposure.",
+      "I'm self-driven to grow into a complete full-stack engineer — I learned backend development independently and through a mentor-led Python Full Stack Development course, then applied it by building and deploying REST API-backed projects (CRM platforms, booking apps, AI chatbots) as a freelancer.",
+      "Alongside my full-time work, I freelance — building complete websites and business tools for clients from scratch. I lean heavily on AI-assisted development tools like GitHub Copilot, ChatGPT and Claude AI to accelerate learning and development.",
       "I hold a B.Sc. in Physics and transitioned into software development through an intensive Python Full Stack program — bringing a strong analytical foundation to every product I build."
     ],
     stats: [
       { value: "7+", label: "Months Production Experience" },
       { value: "10+", label: "REST API Endpoints Built" },
-      { value: "5+", label: "Projects Delivered" },
+      { value: "6+", label: "Projects Delivered" },
       { value: "2", label: "Companies Worked With" }
     ]
   },
@@ -147,23 +148,22 @@ const DEFAULT_CONTENT = {
     heading: "Experience",
     items: [
       {
-        role: "Web Developer",
-        company: "Swivel Technologies",
-        period: "Sep 2025 – Mar 2026",
-        points: [
-          "Led frontend development of responsive web apps using React.js, HTML5, CSS3 and JavaScript (ES6+) in production.",
-          "Integrated 10+ RESTful API endpoints into the React.js frontend for seamless data exchange across modules.",
-          "Contributed to backend development (Python, Django) — data pipelines and REST API support.",
-          "Leveraged GitHub Copilot and ChatGPT daily, reducing debugging time and accelerating delivery."
-        ]
-      },
-      {
         role: "Web Development Intern",
         company: "Vetri Technology Solutions",
         period: "Mar 2026 – Apr 2026",
         points: [
-          "Contributed to live web modules under senior developer mentorship in an agile environment.",
-          "Applied industry coding standards for version control and collaborative development."
+          "Contributed to live web modules under senior developer mentorship in an agile environment, applying industry-standard version control and code review practices."
+        ]
+      },
+      {
+        role: "Web Developer",
+        company: "Swivel Technologies",
+        period: "Sep 2025 – Mar 2026",
+        points: [
+          "Engineered responsive web apps using React.js, HTML5, CSS3, and JavaScript (ES6+), improving page-load performance and UI responsiveness across production modules.",
+          "Architected and integrated 10+ RESTful API endpoints into the React.js frontend, streamlining data exchange and reducing manual data-handling steps.",
+          "Assisted with basic backend tasks in Python and Django, supporting REST API functionality alongside primary frontend development responsibilities.",
+          "Leveraged GitHub Copilot and ChatGPT daily, cutting average debugging time by an estimated 20-25%."
         ]
       }
     ]
@@ -173,13 +173,13 @@ const DEFAULT_CONTENT = {
     heading: "Projects",
     subheading: "Things I've built — freelance client work and personal builds",
     featured: {
-      title: "Student Management System",
+      title: "GlowSlot — Salon & Beauty Booking Platform",
       tag: "Featured Case Study",
-      stack: "Python · Django · SQL",
-      challenge: "Schools and small institutions often manage student records through scattered spreadsheets — slow, error-prone, and hard to search or update as records grow.",
-      approach: "I designed a full-stack student portal from the ground up: a normalized SQL schema, clean CRUD workflows for admins, and a Django backend wired to handle real data reliably instead of just as a demo.",
-      result: "A live, deployed production build that manages student records end-to-end — proof that the whole pipeline, from database design to deployment, actually works in practice.",
-      link: "https://student-management-system-p6q9.onrender.com",
+      stack: "Django REST API · React · React Native",
+      challenge: "Salon and beauty businesses often rely on phone calls and paper diaries for appointments — leading to double-bookings, no-shows, and a clunky booking experience for customers on the go.",
+      approach: "I built a full booking platform end-to-end: a Django REST API backend, a React web app for customers plus an admin panel for salon staff, and a React Native mobile app — all sharing the same API, with secure login and role-based access control.",
+      result: "A live, deployed multi-platform product — proof that I can design and ship a real API-first architecture that powers web, admin and mobile clients from one backend.",
+      link: "https://glowslot-web.onrender.com",
       linkLabel: "View Live Demo"
     },
     items: [
@@ -188,40 +188,40 @@ const DEFAULT_CONTENT = {
         tag: "Freelance Client Work",
         stack: "HTML, CSS, JavaScript",
         description: "Designed and built a responsive showcase website for RMA Residency, presenting facilities and information through a clean, mobile-friendly layout.",
-        link: "https://github.com/jeeva081202",
-        linkLabel: "GitHub"
+        link: "https://jeeva081202.github.io/RMA",
+        linkLabel: "View Site"
       },
       {
-        title: "Banking Transaction Management System",
+        title: "Krishnu Cotton Sarees — Billing Software",
+        tag: "Freelance Client Work",
+        stack: "Python, Django, SQL",
+        description: "Built a custom billing system for a retail client, automating invoice generation and reducing manual sales-record processing time.",
+        link: "https://jeeva081202.github.io/bill",
+        linkLabel: "View Site"
+      },
+      {
+        title: "Student Management System",
         tag: "Full-Stack Project",
         stack: "Python, Django, SQL",
-        description: "Simulated an online banking app with secure login, role-based access, and real-time balance tracking.",
-        link: "",
-        linkLabel: ""
+        description: "Developed a full-stack student portal with clean CRUD workflows, deployed to production.",
+        link: "https://student-management-system-p6q9.onrender.com",
+        linkLabel: "View Live Demo"
       },
       {
-        title: "CRM System",
+        title: "AI-Thunai — AI Chatbot",
+        tag: "Personal Project",
+        stack: "Python, React.js, AI/LLM API",
+        description: "Built and deployed an AI-powered conversational chatbot integrated with an LLM API.",
+        link: "https://ai-thunai-frontend.onrender.com",
+        linkLabel: "View Live Demo"
+      },
+      {
+        title: "ChithraCRM — WhatsApp-Style CRM for Local Shops",
         tag: "Full-Stack Project",
-        stack: "Python, Django, REST API, SQL",
-        description: "Built a lead / contact / sales pipeline CRM with dashboard analytics and RESTful APIs.",
-        link: "",
-        linkLabel: ""
-      },
-      {
-        title: "Mini E-Commerce App",
-        tag: "Personal Project",
-        stack: "Python, Django, SQL",
-        description: "Full-stack e-commerce app covering product listings and cart management.",
-        link: "",
-        linkLabel: ""
-      },
-      {
-        title: "Payslip Generator",
-        tag: "Personal Project",
         stack: "Python, Django",
-        description: "A dynamic payslip generator app built as a full-stack solution.",
-        link: "",
-        linkLabel: ""
+        description: "Built a CRM web app to help shop owners manage customers and orders, deployed live using GitHub and Render.",
+        link: "https://chithra-crm.onrender.com",
+        linkLabel: "View Live Demo"
       }
     ]
   },
@@ -239,12 +239,6 @@ const DEFAULT_CONTENT = {
         title: "Python Full Stack Development",
         place: "Vetri Technology Solutions",
         period: "Feb – Apr 2026",
-        detail: "Certification"
-      },
-      {
-        title: "2-Month Internship Certificate",
-        place: "Vetri Technology Solutions",
-        period: "Mar – Apr 2026",
         detail: "Certification"
       }
     ],
