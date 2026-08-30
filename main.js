@@ -320,14 +320,15 @@ if (DATA.projects.featured){
 
 /* ---------------- Projects: simple clean cards ---------------- */
 const projectGrid = document.getElementById("project-grid");
-DATA.projects.items.forEach(p => {
+DATA.projects.items.forEach((p, pi) => {
   const card = el("div", "project-card reveal");
+  card.style.transitionDelay = ((pi % 3) * 0.12) + "s";
   card.innerHTML = `
     <span class="project-tag">${p.tag}</span>
     <div class="project-title">${p.title}</div>
     <div class="project-stack">${p.stack}</div>
     <p class="project-desc">${p.description}</p>
-    ${p.link ? `<a class="project-link" href="${p.link}" target="_blank" rel="noopener"><span>${p.linkLabel || "View"}</span><span class="arrow">→</span></a>` : ""}
+    ${p.link ? `<a class="project-link" href="${p.link}" target="_blank" rel="noopener"><span class="link-dot"></span><span>${p.linkLabel || "View"}</span><span class="arrow">→</span></a>` : ""}
   `;
   projectGrid.appendChild(card);
 });
